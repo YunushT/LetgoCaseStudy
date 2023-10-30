@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Letgo Case Study</string>
+    <string name="model_year_title">Please select the model year.</string>
+    <string name="model_make_title">Please select the make.</string>
+    <string name="model_title">Please select the model.</string>
+    <string name="body_type_title">Please choose the body type.</string>
+    <string name="engine_type_title">Please select the engine type.</string>
+    <string name="transmission_type_title">Please select the transmission type.</string>
+    <string name="trim_type_title">Please select the trim.</string>
+    <string name="color_title">Please select the color.</string>
+    <string name="mileage_input_title">Please fill in the mileage information.</string>
+    <string name="mileage_of_the_vehicle">Mileage Of The Vehicle</string>
+    <string name="submit">Submit</string>
+    <string name="pricing_result">Here is your results: </string>
+    <string name="model_year_key">Model Year: %1$s </string>
+    <string name="result_trim_key">Trim Type: %1$s</string>
+    <string name="result_engine_key">Engine Type: %1$s</string>
+    <string name="result_gear_type_key">Gear Type: %1$s</string>
+    <string name="result_color_key">Color: %1$s</string>
+    <string name="result_used_mileage_key">Mileage: %1$s</string>
+    <string name="result_price_offer_key">Our Offer: %1$s</string>
+    <string name="default_error_message">Something went wrong, please try again</string>
+</resources>

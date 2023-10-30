@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/price_finder_navigation"
+    app:startDestination="@id/priceDetectionQuestionnaireFragment">
+
+    <fragment
+        android:id="@+id/priceDetectionQuestionnaireFragment"
+        android:name="com.yunushan.letgocasestudy.presentation.view.PriceDetectionQuestionnaireFragment"
+        android:label="fragment_price_detection_questionnaire"
+        tools:layout="@layout/fragment_price_detection_questionnaire">
+
+        <action
+            android:id="@+id/action_priceDetectionQuestionnaireFragment_to_mileageInputFragment"
+            app:destination="@id/mileageInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mileageInputFragment"
+        android:name="com.yunushan.letgocasestudy.presentation.view.MileageInputFragment"
+        android:label="fragment_mileage_input"
+        tools:layout="@layout/fragment_mileage_input" />
+</navigation>
