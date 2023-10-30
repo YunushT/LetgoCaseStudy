@@ -21,7 +21,6 @@ import com.yunushan.letgocasestudy.presentation.event.PageTypes
 import com.yunushan.letgocasestudy.presentation.event.PriceResultEvent
 import com.yunushan.letgocasestudy.presentation.event.QuestionnareDetailsEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -59,6 +58,11 @@ class MainViewModel @Inject constructor(
         getVehicleModelYears()
     }
 
+    /**
+     * gets VehicleModelYears.
+     *
+     * Returns result to UI and sets nextPageState
+     */
     private fun getVehicleModelYears() {
         viewModelScope.launch() {
             getVehicleModelYearsUseCase.getVehicleModelYears(
@@ -79,6 +83,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * decides what will be the next page.
+     *
+     * takes selectedText param and pass through the related method
+     *
+     */
     fun getNextPage(selectedText: String) {
         when (nextPageState) {
             PageTypes.MAKE -> getVehicleMake(selectedText)
@@ -93,6 +103,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Navigates to Mileage fragment using flow
+     *
+     * Also sets selectedText param to VehicleInfo model
+     *
+     */
     private fun navigateMileageFragment(selectedText: String) {
         vehicleInfo =
             vehicleInfo.copy(
@@ -103,6 +119,12 @@ class MainViewModel @Inject constructor(
         _questionnareDetailFlow.value = QuestionnareDetailsEvent.NavigateMileageFragment
     }
 
+    /**
+     * Gets vehicle colors and map them as List [String] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     private fun getVehicleColors(selectedText: String) {
         viewModelScope.launch() {
             vehicleInfo =
@@ -132,6 +154,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * gets vehicle colors and group them as List [String]
+     * sends UI using flow.
+     * sets selectedText param to VehicleInfo model
+     *
+     */
     private fun getVehicleTrims(selectedText: String) {
         viewModelScope.launch {
             vehicleInfo =
@@ -151,6 +179,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Gets transmission types and map them as List [String] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     private fun getTransmissionTypes(selectedText: String) {
         viewModelScope.launch {
             vehicleInfo =
@@ -170,6 +204,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Gets EngineTypes and map them as List [String] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     private fun getEngineTypes(selectedText: String) {
         viewModelScope.launch {
             vehicleInfo =
@@ -188,6 +228,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Gets vehicle models and map them as List [String] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     private fun getVehicleModels(selectedText: String) {
         viewModelScope.launch() {
             vehicleInfo =
@@ -217,6 +263,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Gets BodyTypes and map them as List [String] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     private fun getBodyTypes(selectedText: String) {
         vehicleInfo =
             vehicleInfo.copy(
@@ -247,6 +299,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Gets Vehicle Brands as Make and map them as List [String] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     private fun getVehicleMake(selectedText: String) {
         vehicleInfo = vehicleInfo.copy(vehicleModelYear = selectedText)
         viewModelScope.launch() {
@@ -271,6 +329,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Gets vehicle estimated price object [VehiclePricingUIModel] then
+     * sends UI using flow.
+     * Also sets selectedText param to [VehicleInfo] model
+     *
+     */
     fun getVehiclePrice(vehicleMileage: String) {
         vehicleInfo = vehicleInfo.copy(vehicleMileage = vehicleMileage)
         viewModelScope.launch() {
